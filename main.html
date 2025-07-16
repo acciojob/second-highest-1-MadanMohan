@@ -8,8 +8,6 @@
 		function secondHighest(arr) {
 			if (arr.length < 2) return -Infinity;
 
-			// Convert all to numbers
-			arr = arr.map(Number);
 
 			// Sort in descending order
 			arr.sort((a, b) => b - a);
