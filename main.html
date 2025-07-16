@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+	<title>Second Highest</title>
 </head>
-
-<body>	
+<body>
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			if (arr.length < 2) return -Infinity;
+
+			// Convert all to numbers
+			arr = arr.map(Number);
+
+			// Sort in descending order
+			arr.sort((a, b) => b - a);
+
+			// Return the second distinct highest number
+			for (let i = 1; i < arr.length; i++) {
+				if (arr[i] < arr[0]) return arr[i];
+			}
 			
+			return -Infinity; // All elements are equal
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+			let n = parseInt(prompt("Enter the number of elements"));
+			let arr = [];
+			for (let i = 0; i < n; i++) {
+				arr[i] = prompt("Enter element " + (i + 1));
 			}
-			alert(secondHighest(arr));
+			alert("Second highest: " + secondHighest(arr));
 		}
+
 		Main();
 	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
 </body>
-
 </html>
